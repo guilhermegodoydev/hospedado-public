@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estiloGeral.css">
+
+    <title>Ciclo Limpo</title>
+</head>
+<body>
+    <header>
+        <img src="imagens/logo.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="banner" id="inicio">
+            <img src="imagens/banner.png" alt="Foto do banner">
+            <h1 class="animar" data-animacao="animacao-surgir">Você <strong>cuida do</strong> planeta,<br> a gente <strong>cuida do</strong> resto</h1>
+        </section>
+
+        <section id="sobre">
+            <div class="animar" data-animacao="animacao-aparecer">
+                <h1>Ciclo Limpo: Descarte inteligente com propósito</h1>
+                <h2>Soluções sustentáveis para resíduos empresariais, do ponto de coleta ao destino final</h2>
+                <p>
+                    Na Ciclo Limpo, transformamos o descarte em compromisso ambiental. Somos uma empresa especializada na gestão e destinação correta de resíduos corporativos, atuando com eficiência e responsabilidade em cada etapa do processo.
+                    Enquanto sua empresa foca no que realmente importa, nós garantimos que todo resíduo gerado tenha o destino certo, com transparência, rastreabilidade e impacto positivo para o meio ambiente.
+                    Trabalhamos com coleta personalizada, instalação de pontos de descarte, operações em eventos, e consultoria ambiental — sempre em conformidade com as normas ambientais vigentes.
+                </p>
+            </div>
+
+            <hr>
+
+            <img src="imagens/trabalhadores.png" alt="Imagem de trabalhadores da ciclo limpo em fileira na frente de um caminhão" class="animar" data-animacao="animacao-surgir">
+
+        </section>
+
+        <section id="servicos">
+            <h1 class="animar" data-animacao="animacao-aparecer">Nossos Serviços</h1>
+            <div class="containerServicos">
+                <a href="servicoGestaoResiduos.html" class="cardServico animar" data-animacao="animacao-surgir">
+                    <img src="imagens/card1.png" alt="">
+                    <h1>Gestão de Resíduos</h1>
+                    <p>Oferecemos gestão completa de resíduos para empresas que buscam eficiência e conformidade ambiental.</p>
+                </a>
+
+                <a href="servicoColetaShows.html" class="cardServico animar" data-animacao="animacao-surgir">
+                    <img src="imagens/card2.png" alt="">
+                    <h1>Coleta em Shows</h1>
+                    <p>Oferecemos coleta inteligente de resíduos em eventos e shows, garantindo agilidade, organização e descarte ambientalmente correto.</p>
+                </a>
+
+                <a href="servicoInstalacao.html" class="cardServico animar" data-animacao="animacao-surgir">
+                    <img src="imagens/card3.png" alt="">
+                    <h1>Instalação</h1>
+                    <p>Instalamos pontos de coleta personalizados dentro da sua empresa para facilitar o descarte consciente.</p>
+                </a>
+
+                <a href="servicoConsultoria.html" class="cardServico animar" data-animacao="animacao-surgir">
+                    <img src="imagens/card4.png" alt="">
+                    <h1>Consultoria ambiental</h1>
+                    <p>Ajudamos sua empresa a mapear, categorizar e reduzir seus resíduos, alinhando seus processos às normas ambientais. Com diagnóstico técnico e planos personalizados, você garante economia, legalidade e sustentabilidade.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="animar" data-animacao="animacao-surgir">
+                <h1>Fale Conosco</h1>
+                <p>
+                    Tem alguma dúvida, sugestão ou precisa de um atendimento personalizado? Nossa equipe está pronta para ouvir você!
+                    Seja para solicitar nossos serviços de coleta de resíduos, agendar uma visita técnica, entender melhor nossas soluções ambientais ou simplesmente conversar sobre como podemos contribuir com a sustentabilidade da sua empresa, estamos aqui para ajudar.
+                </p>   
+
+                <h2>Entre em contato conosco pelos canais abaixo:</h2>
+                <ul>
+                    <li>E-mail: ciclolimpocontato@ciclolimpo.com.br</li>
+                    <li>Telefone/WhatsApp: (11) 3456-7890</li>
+                    <li>Horário de atendimento: Segunda a sexta, das 8h às 17h</li>
+                </ul>
+                <p>
+                    Ou, se preferir, preencha o formulário ao lado e envie sua mensagem diretamente para o nosso time. Responderemos o mais breve possível.
+                </p>
+                <p><strong>Juntos por um futuro mais limpo e consciente. Agradecemos seu contato!</strong></p>
+            </div>
+            <form class="animar" data-animacao="animacao-aparecer">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Digite seu Email" required>
+                </div>
+                <div>
+                    <label for="assunto">Assunto:</label>
+                    <textarea name="assunto" id="assunto" placeholder="Digite o assunto" required></textarea>
+                </div>
+                <button>Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+
+    <footer>
+        <p>&copy; 2025 Ciclo Limpo. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+section:not(:first-child) {
+    height: auto;
+}
+
+section:nth-child(3) {
+    background-color: var(--principal);
+    color: white;
+    text-align: center;
+}
+
+.beneficios {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.beneficios div {
+    max-width: 30%;
+    text-align: center;
+}
+
+.beneficios img {
+    max-width: 100%;
+    height: auto;
+}
+
+.beneficios p {
+    margin-top: 10px;
+}
+
+button {
+    width: 200px;
+}
