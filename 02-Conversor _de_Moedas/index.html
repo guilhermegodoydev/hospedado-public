@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="ico" type="image/png" href="imagens/favicon.png">
+
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Tags para SEO -->
+    <meta name="description" content="Conversor de Moedas - Converta facilmente entre diferentes moedas com nossa ferramenta online.">
+    <meta name="keywords" content="conversor de moedas, câmbio, conversão de moeda, ferramenta online">
+    <meta name="author" content="Guilherme Godoy">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tags para Compartilhamento -->
+    <meta property="og:title" content="Conversor de Moedas">
+    <meta property="og:description" content="Converta facilmente entre diferentes moedas com nossa ferramenta online.">
+    <meta property="og:image" content="URL_da_imagem_de_compartilhamento">
+    <meta property="og:url" content="URL_da_página_do_conversor">
+    <meta property="og:type" content="website">
+
+    <title>Conversor de Moedas</title>
+</head>
+<body class="bg-gradient-to-tl from-blue-500 to-purple-500 min-h-screen text-white flex items-center justify-center">
+    <a href="https://github.com/guilhermegodoydev" target="_blank" class="absolute right-3 top-3 flex items-center hover:text-purple-300">     
+        <img src="imagens/Github.svg" alt="Logo do GitHub" class="max-w-[60px]">
+        <p>Meu GitHub</p>
+    </a>
+
+    <main class="flex justify-center items-center flex-col max-w-[80%]">
+        <section class="w-full">
+            <h1 class="text-center text-4xl m-5" >Conversor de Moedas</h1>
+
+            <form id="form-conversor">
+                <label for="valor" class="block">Valor em reais:</label>
+                <input type="number" step="any" required placeholder="0.00" id="valor" class="text-black w-[74%] rounded-md p-1 shadow-xl">
+                
+                <select name="moedas" id="lista-moedas" class="text-black w-[24%] rounded-md p-1 shadow-xl"></select>
+
+                <p>Resultado: <span id="resultado"></span></p>
+
+                <button id="btn-converter" type="submit" class="mx-auto m-6 block bg-gradient-to-br from-blue-500 to-purple-600 p-2 text-lg rounded-md shadow-xl 
+                duration-300 transition-all hover:bg-purple-700 hover:scale-105">
+                    Converter
+                </button>
+            </form>
+        </section>
+
+        <section class="w-full bg-white rounded-md min-h-[370px]">
+            <h1 class="text-center m-3 text-black">Variação Cambial</h1>
+            <div class="bg-gray-400">
+                <ul id="opcoes-moedas" class="flex text-black max-w-[100%] overflow-x-auto gap-5"></ul>
+            </div>
+            <div class="bg-gray-200 shadow-xl">
+                <ul class="flex justify-between px-5 text-black" id="periodos">
+                    <li dias="7">7D</li>
+                    <li dias="30">30D</li>
+                    <li dias="182">6M</li>
+                    <li dias="365">1A</li>
+                </ul>
+            </div>
+            <canvas id="grafico" class="max-h-[73%]"></canvas>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
