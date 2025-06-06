@@ -23,7 +23,7 @@ Um conversor de moedas **em tempo real** que utiliza uma API externa para consul
 
 ### ✅ Versão Online
 
-Acesse a versão hospedada: [https://moedaio.netlify.app/](https://moedaio.netlify.app/)
+Acesse a versão hospedada: [https://moedaio.netlify.app/](https://moedaio.netlify.app/){:target="_blank" rel="noopener noreferrer"}
 
 ### 💻 Rodar Localmente
 
