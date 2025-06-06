@@ -15,14 +15,15 @@ Um conversor de moedas **em tempo real** que utiliza uma API externa para consul
 
 - **HTML5**
 - **JavaScript (Fetch API)**
-- **Tailwind CSS**
+- **Tailwind CSS** (build via CLI)
 - **[Chart.js](https://www.chartjs.org/)** — para renderização dos gráficos
+- **[Day.js](https://day.js.org/)** - para manipulação de dias para a API
 
 ## 🚀 Como usar
 
 ### ✅ Versão Online
 
-Você pode acessar a versão hospedada [clicando aqui](#) _(substitua com o link após publicação)_.
+Acesse a versão hospedada: [https://moedaio.netlify.app/](https://moedaio.netlify.app/)
 
 ### 💻 Rodar Localmente
 
@@ -31,9 +32,21 @@ Você pode acessar a versão hospedada [clicando aqui](#) _(substitua com o link
    ```bash
    git clone https://github.com/seu-usuario/conversor-moedas.git
    cd conversor-moedas
+   ```
 
-2. Abra o arquivo index.html no navegador:
+2. Instale as dependências (apenas para gerar o CSS do Tailwind):
 
-- Não é necessário instalar dependências
+   ```bash
+   npm install
+   ```
 
-- Todo o projeto roda no navegador (client-side)
+3. Gere o CSS do Tailwind:
+
+   ```bash
+   npx tailwindcss -i ./src/css/input.css -o ./dist/output.css --minify
+   ```
+
+4. Abra o arquivo `index.html` no navegador.
+
+> **Obs:** Todo o projeto roda no navegador (client-side).  
+> Não é necessário backend.
