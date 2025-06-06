@@ -1,4 +1,4 @@
-import { BuscarCotacaoUltimosDias, ConverterMoeda, ListarMoedas } from './moeda.js';
+import { BuscarCotacaoUltimosDias, ConverterMoeda, ListarMoedas } from './modules/moeda.js';
 
 const caixaSelecao = document.getElementById('lista-moedas');
 const opcoesMoedas = document.getElementById('opcoes-moedas');
@@ -9,50 +9,54 @@ const botao = document.getElementById('btn-converter');
 const periodos = document.getElementById('periodos');
 
 let instanciaChart = null;
-const moedas = await ListarMoedas();
 
-moedas.forEach(moeda => {
-    const option = document.createElement('option'); 
-    option.value = moeda.codigo;
-    option.title = moeda.nome;
-    option.textContent = moeda.codigo;
+(async () => {
+    const moedas = await ListarMoedas();
 
-    caixaSelecao.appendChild(option);
+    moedas.forEach(moeda => {
+        const option = document.createElement('option'); 
+        option.value = moeda.codigo;
+        option.title = moeda.nome;
+        option.textContent = moeda.codigo;
 
-    const li = document.createElement('li');
-    li.textContent = moeda.codigo;
-    li.title = moeda.nome;
-    li.classList.add("cursor-pointer");
+        caixaSelecao.appendChild(option);
 
-    opcoesMoedas.appendChild(li);
+        const li = document.createElement('li');
+        li.textContent = moeda.codigo;
+        li.title = moeda.nome;
+        li.classList.add("cursor-pointer");
 
-});
-
-let moedaSelecionadaGrafico = opcoesMoedas.children[0];
-moedaSelecionadaGrafico.classList.add("text-purple-500");
-
-let periodoSelecionado = periodos.children[0];
-periodoSelecionado.classList.add("text-purple-500");
-
-Array.from(opcoesMoedas.children).forEach(item => {
-    item.addEventListener('click', () => {
-        moedaSelecionadaGrafico.classList.remove("text-purple-500");
-        item.classList.add("text-purple-500");
-        moedaSelecionadaGrafico = item;
-
-        CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+        opcoesMoedas.appendChild(li);
     });
-});
 
-Array.from(periodos.children).forEach(item => {
-    item.addEventListener('click', () => {
-        periodoSelecionado.classList.remove("text-purple-500");
-        item.classList.add("text-purple-500");
-        periodoSelecionado = item;
+    let moedaSelecionadaGrafico = opcoesMoedas.children[0];
+    moedaSelecionadaGrafico.classList.add("text-purple-500");
 
-        CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+    let periodoSelecionado = periodos.children[0];
+    periodoSelecionado.classList.add("text-purple-500");
+
+    Array.from(opcoesMoedas.children).forEach(item => {
+        item.addEventListener('click', () => {
+            moedaSelecionadaGrafico.classList.remove("text-purple-500");
+            item.classList.add("text-purple-500");
+            moedaSelecionadaGrafico = item;
+
+            CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+        });
     });
-});
+
+    Array.from(periodos.children).forEach(item => {
+        item.addEventListener('click', () => {
+            periodoSelecionado.classList.remove("text-purple-500");
+            item.classList.add("text-purple-500");
+            periodoSelecionado = item;
+
+            CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+        });
+    });
+
+    moedaSelecionadaGrafico.click();
+})();
 
 formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -122,5 +126,3 @@ async function CriarGrafico(moeda, dias) {
 
     instanciaChart = new Chart(graficoContainer, config);
 }
-
-moedaSelecionadaGrafico.click();

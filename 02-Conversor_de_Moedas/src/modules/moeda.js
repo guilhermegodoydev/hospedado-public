@@ -14,7 +14,7 @@ export async function ConverterMoeda(para, valor) {
         console.error('Erro ao converter moeda');
         throw new Error('Não foi possível converter a moeda.', error);
     }
-}
+};
 
 export async function ListarMoedas() {
     try {
@@ -32,7 +32,7 @@ export async function ListarMoedas() {
         console.error('Erro ao listar moedas:');
         throw new Error('Não foi possível listar as moedas disponíveis.', erro);
     }
-}
+};
 
 export async function BuscarCotacaoUltimosDias(moeda, dias) {
     try {
@@ -47,5 +47,5 @@ export async function BuscarCotacaoUltimosDias(moeda, dias) {
         console.error('Erro ao buscar cotação dos últimos dias');
         throw new Error('Não foi possível buscar a cotação dos últimos dias.', error);
     }
-}
+};
 

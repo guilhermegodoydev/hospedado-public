@@ -1,4 +1,14 @@
 {
+  "name": "02-conversor_de_moedas",
+  "version": "1.0.0",
+  "description": "Um conversor de moedas **em tempo real** que utiliza uma API externa para consultar valores atualizados e permite visualizar **gráficos interativos** com base em diferentes períodos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",
     "tailwindcss": "^4.1.8"
