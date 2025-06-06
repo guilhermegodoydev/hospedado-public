@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="ico" type="image/png" href="imagens/favicon.png">
+    <link rel="ico" type="image/png" href="assets/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/output.css">
 
     <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 
@@ -28,7 +30,7 @@
 </head>
 <body class="bg-gradient-to-tl from-blue-500 to-purple-500 min-h-screen text-white flex items-center justify-center">
     <a href="https://github.com/guilhermegodoydev" target="_blank" class="absolute right-3 top-3 flex items-center hover:text-purple-300">     
-        <img src="imagens/Github.svg" alt="Logo do GitHub" class="max-w-[60px]">
+        <img src="assets/Github.svg" alt="Logo do GitHub" class="max-w-[60px]">
         <p>Meu GitHub</p>
     </a>
 
@@ -38,9 +40,9 @@
 
             <form id="form-conversor">
                 <label for="valor" class="block">Valor em reais:</label>
-                <input type="number" step="any" required placeholder="0.00" id="valor" class="text-black w-[74%] rounded-md p-1 shadow-xl">
+                <input type="number" step="any" required placeholder="0.00" id="valor" class="text-black w-[74%] rounded-md p-1 shadow-xl bg-white">
                 
-                <select name="moedas" id="lista-moedas" class="text-black w-[24%] rounded-md p-1 shadow-xl"></select>
+                <select name="moedas" id="lista-moedas" class="bg-white text-black w-[24%] rounded-md p-1 shadow-xl"></select>
 
                 <p>Resultado: <span id="resultado"></span></p>
 
@@ -51,7 +53,7 @@
             </form>
         </section>
 
-        <section class="w-full bg-white rounded-md min-h-[370px]">
+        <section class="w-full bg-white rounded-md">
             <h1 class="text-center m-3 text-black">Variação Cambial</h1>
             <div class="bg-gray-400">
                 <ul id="opcoes-moedas" class="flex text-black max-w-[100%] overflow-x-auto gap-5"></ul>
@@ -68,6 +70,6 @@
         </section>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="../src/js/main.js"></script>
 </body>
 </html>
