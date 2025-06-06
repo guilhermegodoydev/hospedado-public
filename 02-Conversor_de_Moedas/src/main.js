@@ -1,5 +1,4 @@
 import { BuscarCotacaoUltimosDias, ConverterMoeda, ListarMoedas } from './modules/moeda.js';
-import '../dist/output.css'
 
 const caixaSelecao = document.getElementById('lista-moedas');
 const opcoesMoedas = document.getElementById('opcoes-moedas');
