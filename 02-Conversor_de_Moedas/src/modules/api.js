@@ -12,6 +12,6 @@ export async function BuscarDados(url) {
     }
     catch (error) {
         console.error('Erro ao buscar dados:', error);
-        throw new Error('Não foi possível buscar os dados das moedas.');
+        throw new Error('Não foi possível buscar os dados das moedas.' + error.message);
     }
 };

@@ -5,6 +5,7 @@ Um conversor de moedas **em tempo real** que utiliza uma API externa para consul
 ## ✨ Funcionalidades
 
 - Conversão entre moedas usando dados atualizados via API.
+- Histórico das últimas conversões.
 - Gráficos dinâmicos com a variação da cotação nos períodos:
   - Últimas 24 horas
   - Últimos 7 dias

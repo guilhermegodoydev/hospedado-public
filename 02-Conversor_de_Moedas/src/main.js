@@ -1,14 +1,18 @@
 import { BuscarCotacaoUltimosDias, ConverterMoeda, ListarMoedas } from './modules/moeda.js';
+import { RegistrarConversao, BuscarHistoricoConversoes, LimparHistorico } from './modules/historico.js'; 
 
 const caixaSelecao = document.getElementById('lista-moedas');
 const opcoesMoedas = document.getElementById('opcoes-moedas');
 const resultado = document.getElementById('resultado');
 const formulario = document.getElementById('form-conversor');
-const graficoContainer = document.getElementById('grafico').getContext('2d');
 const botao = document.getElementById('btn-converter');
 const periodos = document.getElementById('periodos');
+const elHistorico = document.getElementById('historico');
+const graficoContainer = document.getElementById('grafico').getContext('2d');
 
 let instanciaChart = null;
+
+renderizarHistorico();
 
 (async () => {
     const moedas = await ListarMoedas();
@@ -63,7 +67,7 @@ formulario.addEventListener('submit', async (e) => {
 
     AlterarEstadoBotao(botao);
 
-    let valor = document.getElementById('valor').value;
+    const valor = document.getElementById('valor').value;
 
     if (!valor || isNaN(valor) || Number(valor) <= 0) {
         alert('Por favor, insira um valor numérico válido maior que 0.');
@@ -72,9 +76,21 @@ formulario.addEventListener('submit', async (e) => {
     }
 
     try {
-        let moeda = caixaSelecao.value;
+        const moeda = caixaSelecao.value;
 
-        resultado.textContent = moeda + " " + await ConverterMoeda(moeda, valor);
+        const resultadoConversao = await ConverterMoeda(moeda, valor);
+        resultado.textContent = moeda + " " + resultadoConversao;
+
+        RegistrarConversao(valor, moeda, resultadoConversao.toFixed(2));
+
+        const li = document.createElement('li');
+        li.textContent = `R$${Number(valor).toFixed(2)} → ${moeda} ${Number(resultadoConversao).toFixed(2)}`;
+        li.classList.add("text-start", "p-2");
+
+        const indice = elHistorico.children.length;
+        li.classList.add(indice % 2 === 0 ? "bg-gray-100" : "bg-gray-200");
+
+        elHistorico.appendChild(li);
     } catch (error) {
         console.error('Erro ao converter moeda:', error);
         alert('Não foi possível converter a moeda. Verifique os dados inseridos e tente novamente.');
@@ -125,4 +141,22 @@ async function CriarGrafico(moeda, dias) {
     };
 
     instanciaChart = new Chart(graficoContainer, config);
+}
+
+function renderizarHistorico() {
+    elHistorico.innerHTML = "";
+    const historico = BuscarHistoricoConversoes();
+    if (historico.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = "Nenhuma conversão realizada ainda.";
+        li.classList.add("p-2", "text-center", "bg-gray-100");
+        elHistorico.appendChild(li);
+    } else {
+        historico.forEach((item, i) => {
+            const li = document.createElement('li');
+            li.textContent = `R$${Number(item.valor).toFixed(2)} → ${item.paraMoeda} ${Number(item.resultado).toFixed(2)}`;
+            li.classList.add("text-start", "p-2", i % 2 === 0 ? "bg-gray-100" : "bg-gray-200");
+            elHistorico.appendChild(li);
+        });
+    }
 }
