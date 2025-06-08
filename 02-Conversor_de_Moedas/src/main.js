@@ -9,10 +9,11 @@ const botao = document.getElementById('btn-converter');
 const periodos = document.getElementById('periodos');
 const elHistorico = document.getElementById('historico');
 const graficoContainer = document.getElementById('grafico').getContext('2d');
+const btnApagarHistorico = document.getElementById('btn-limpar-historico');
 
 let instanciaChart = null;
 
-renderizarHistorico();
+RenderizarHistorico();
 
 (async () => {
     const moedas = await ListarMoedas();
@@ -45,7 +46,7 @@ renderizarHistorico();
             item.classList.add("text-purple-500");
             moedaSelecionadaGrafico = item;
 
-            CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+            RenderizarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
         });
     });
 
@@ -55,7 +56,7 @@ renderizarHistorico();
             item.classList.add("text-purple-500");
             periodoSelecionado = item;
 
-            CriarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
+            RenderizarGrafico(moedaSelecionadaGrafico.textContent, periodoSelecionado.getAttribute('dias'));
         });
     });
 
@@ -82,15 +83,8 @@ formulario.addEventListener('submit', async (e) => {
         resultado.textContent = moeda + " " + resultadoConversao;
 
         RegistrarConversao(valor, moeda, resultadoConversao.toFixed(2));
-
-        const li = document.createElement('li');
-        li.textContent = `R$${Number(valor).toFixed(2)} → ${moeda} ${Number(resultadoConversao).toFixed(2)}`;
-        li.classList.add("text-start", "p-2");
-
-        const indice = elHistorico.children.length;
-        li.classList.add(indice % 2 === 0 ? "bg-gray-100" : "bg-gray-200");
-
-        elHistorico.appendChild(li);
+        RenderizarHistorico();
+        
     } catch (error) {
         console.error('Erro ao converter moeda:', error);
         alert('Não foi possível converter a moeda. Verifique os dados inseridos e tente novamente.');
@@ -99,13 +93,17 @@ formulario.addEventListener('submit', async (e) => {
     }
 });
 
+btnApagarHistorico.addEventListener('click', () => {
+    LimparHistorico();
+    RenderizarHistorico();
+});
 
 function AlterarEstadoBotao(botao) {
     botao.disabled = !botao.disabled;
     botao.classList.toggle("cursor-no-drop");
 }
 
-async function CriarGrafico(moeda, dias) {
+async function RenderizarGrafico(moeda, dias) {
     const dados = await BuscarCotacaoUltimosDias(moeda, dias);
 
     dados.reverse();
@@ -143,7 +141,7 @@ async function CriarGrafico(moeda, dias) {
     instanciaChart = new Chart(graficoContainer, config);
 }
 
-function renderizarHistorico() {
+function RenderizarHistorico() {
     elHistorico.innerHTML = "";
     const historico = BuscarHistoricoConversoes();
     if (historico.length === 0) {
