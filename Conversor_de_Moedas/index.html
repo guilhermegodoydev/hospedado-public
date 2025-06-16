@@ -30,40 +30,37 @@
 
     <title>Conversor de Moedas</title>
 </head>
-<body class="bg-gradient-to-tl from-blue-500 to-purple-500 text-white flex items-center justify-center h-screen">
+<body class="bg-gradient-to-tl from-blue-500 to-purple-500 text-white flex items-center justify-center min-h-screen">
     <a href="https://github.com/guilhermegodoydev" target="_blank" rel="noopener noreferrer" class="absolute right-3 top-3 flex items-center hover:text-purple-300">
         <img src="/src/assets/Github.svg" alt="Logo do GitHub" class="max-w-[60px]">
     </a>
 
-    <main class="flex flex-col lg:flex-row max-h-screen w-full gap-20 p-10 justify-between align-stretch h-full">
+    <main class="flex flex-col-reverse xl:flex-row  w-full gap-20 p-10 justify-between align-stretch h-full">
         <section class="card flex flex-col flex-1 relative">
             <h1 class="text-center p-4">Histórico de Conversões</h1>
-            <ul id="historico" class="max-h-full rounded-md overflow-y-auto"></ul>
-            <button id="btn-limpar-historico" class="absolute bottom-5 right-5 hover:bg-red-400">Limpar Histórico</button>
+            <ul id="historico" class="max-h-full  xl:h-full h-64 rounded-md overflow-y-auto"></ul>
+            <button id="btn-limpar-historico" class="absolute bottom-2 right-2 lg:bottom-3 lg:right-7 hover:bg-red-400 w-2/6">Apagar</button>
         </section>
 
-        <section class="container flex-2 overflow-hidden flex flex-col justify-between">
+        <section class="flex-2 xl:overflow-hidden lg:overflow-visible flex flex-col justify-between">
             <div>
                 <h1 class="text-center text-3xl p-4 pt-0">Conversor de Moedas</h1>
 
                 <form id="form-conversor">
                     <label for="valor" class="block">Valor em reais:</label>
-                    <div class="flex gap-2 mb-1">
-                        <input type="number" step="any" required placeholder="0.00" id="valor" class="w-6/10">
+                    <div class="lg:flex gap-2 mb-1">
+                        <input type="number" step="any" required placeholder="0.00" id="valor" class="w-7/10 lg:w-6/10">
 
-                        <select name="moedas" id="lista-moedas" class="w-[19.4%]"></select>
+                        <select name="moedas" id="lista-moedas" class="lg:w-2/10 w-[28%]"></select>
     
-                        <button id="btn-converter" type="submit" class="bg-purple-600 hover:bg-purple-500 w-[19.4%]">Converter</button>
+                        <button id="btn-converter" type="submit" class="bg-purple-600 hover:bg-purple-500 lg:w-[19.4%] cursor-pointer p-1.5 mt-3 lg:p-0 lg:mt-0 w-full mb-5 lg:mb-0">Converter</button>
                     </div>
                 </form>
                 <p>Resultado: <span id="resultado"></span></p>
             </div>
 
             <div class="card">
-                <h1 class="text-center p-2
-                
-                
-                ">Variação Cambial</h1>
+                <h1 class="text-center p-2">Variação Cambial</h1>
                 <ul id="opcoes-moedas" class="flex gap-4 px-2 max-w-full overflow-x-auto"></ul>
                 <ul id="periodos" class="flex justify-between px-2 py-1 bg-gray-200">
                     <li dias="7">7D</li>

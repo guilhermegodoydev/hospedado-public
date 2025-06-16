@@ -100,7 +100,8 @@ btnApagarHistorico.addEventListener('click', () => {
 
 function AlterarEstadoBotao(botao) {
     botao.disabled = !botao.disabled;
-    botao.classList.toggle("cursor-no-drop");
+    botao.classList.toggle("cursor-no-drop", botao.disabled);
+    botao.classList.toggle("cursor-pointer", !botao.disabled);
 }
 
 async function RenderizarGrafico(moeda, dias) {
@@ -149,7 +150,6 @@ function RenderizarHistorico() {
         li.textContent = "Nenhuma conversão realizada ainda.";
         li.classList.add("p-2", "text-center", "bg-gray-100");
         elHistorico.appendChild(li);
-        console.log(btnApagarHistorico);
         btnApagarHistorico.disabled = true;
         btnApagarHistorico.classList.remove("cursor-pointer");
         btnApagarHistorico.classList.add("cursor-no-drop");

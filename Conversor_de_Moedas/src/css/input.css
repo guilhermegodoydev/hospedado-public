@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 button {
-  @apply rounded-md text-white cursor-pointer transition-colors shadow-md;
+  @apply rounded-md text-white transition-colors shadow-md;
 }
 
 button:not(#btn-converter) {
