@@ -149,6 +149,12 @@ function RenderizarHistorico() {
         li.textContent = "Nenhuma conversão realizada ainda.";
         li.classList.add("p-2", "text-center", "bg-gray-100");
         elHistorico.appendChild(li);
+        console.log(btnApagarHistorico);
+        btnApagarHistorico.disabled = true;
+        btnApagarHistorico.classList.remove("cursor-pointer");
+        btnApagarHistorico.classList.add("cursor-no-drop");
+        btnApagarHistorico.classList.add("bg-red-400");
+        btnApagarHistorico.classList.remove("bg-red-500");
     } else {
         historico.forEach((item, i) => {
             const li = document.createElement('li');
@@ -156,5 +162,10 @@ function RenderizarHistorico() {
             li.classList.add("text-start", "p-2", i % 2 === 0 ? "bg-gray-100" : "bg-gray-200");
             elHistorico.appendChild(li);
         });
+        btnApagarHistorico.disabled = false;
+        btnApagarHistorico.classList.add("cursor-pointer");
+        btnApagarHistorico.classList.remove("bg-red-400");
+        btnApagarHistorico.classList.add("bg-red-500");
+        btnApagarHistorico.classList.remove("cursor-no-drop");
     }
 }

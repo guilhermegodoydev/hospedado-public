@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+button {
+  @apply rounded-md text-white cursor-pointer transition-colors shadow-md;
+}
+
+button:not(#btn-converter) {
+    @apply p-2;
+}
+
+select, input {
+    @apply bg-white rounded-md text-black px-2 py-1
+}
+
+.card {
+    @apply bg-white rounded-md text-black;
+}

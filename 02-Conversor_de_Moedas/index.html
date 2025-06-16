@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- CSS -->
-    <!-- <link rel="stylesheet" href="dist/output.css"> -->
+    <link rel="stylesheet" href="src/css/output.css">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -36,32 +36,34 @@
     </a>
 
     <main class="flex flex-col lg:flex-row max-h-screen w-full gap-20 p-10 justify-between align-stretch h-full">
-        <section class="flex flex-col bg-white rounded-md text-black flex-1 relative">
+        <section class="card flex flex-col flex-1 relative">
             <h1 class="text-center p-4">Histórico de Conversões</h1>
             <ul id="historico" class="max-h-full rounded-md overflow-y-auto"></ul>
-            <button id="btn-limpar-historico" class="rounded-md bg-red-500 text-white p-2 absolute bottom-5 right-5 hover:bg-red-400 cursor-pointer transition-colors">Limpar Histórico</button>
+            <button id="btn-limpar-historico" class="absolute bottom-5 right-5 hover:bg-red-400">Limpar Histórico</button>
         </section>
 
-        <section class="container flex-2 overflow-hidden">
+        <section class="container flex-2 overflow-hidden flex flex-col justify-between">
             <div>
                 <h1 class="text-center text-3xl p-4 pt-0">Conversor de Moedas</h1>
 
                 <form id="form-conversor">
                     <label for="valor" class="block">Valor em reais:</label>
-                    <input type="number" step="any" required placeholder="0.00" id="valor" class="w-8/10 bg-white rounded-md text-black mb-1 px-2 py-1">
+                    <div class="flex gap-2 mb-1">
+                        <input type="number" step="any" required placeholder="0.00" id="valor" class="w-6/10">
 
-                    <select name="moedas" id="lista-moedas" class="bg-white rounded-md px-2 py-1 text-black w-[19.4%]"></select>
-
-                    <p>Resultado: <span id="resultado"></span></p>
-
-                    <button id="btn-converter" type="submit">
-                        Converter
-                    </button>
+                        <select name="moedas" id="lista-moedas" class="w-[19.4%]"></select>
+    
+                        <button id="btn-converter" type="submit" class="bg-purple-600 hover:bg-purple-500 w-[19.4%]">Converter</button>
+                    </div>
                 </form>
+                <p>Resultado: <span id="resultado"></span></p>
             </div>
 
-            <div class="bg-white rounded-md text-black">
-                <h1 class="text-center p-2">Variação Cambial</h1>
+            <div class="card">
+                <h1 class="text-center p-2
+                
+                
+                ">Variação Cambial</h1>
                 <ul id="opcoes-moedas" class="flex gap-4 px-2 max-w-full overflow-x-auto"></ul>
                 <ul id="periodos" class="flex justify-between px-2 py-1 bg-gray-200">
                     <li dias="7">7D</li>
